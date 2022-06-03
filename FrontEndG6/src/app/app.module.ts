@@ -12,6 +12,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +28,8 @@ import { StavkaPorudzbineComponent } from './components/model/stavka-porudzbine/
 import { AboutComponent } from './components/core/about/about.component';
 import { AuthorComponent } from './components/core/author/author.component';
 import { HomeComponent } from './components/core/home/home.component';
+import { ArtiklDialogComponent } from './components/dialogs/artikl-dialog/artikl-dialog.component';
+import { DobavljacDialogComponent } from './components/dialogs/dobavljac-dialog/dobavljac-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +42,9 @@ import { HomeComponent } from './components/core/home/home.component';
     StavkaPorudzbineComponent,
     AboutComponent,
     AuthorComponent,
-    HomeComponent
+    HomeComponent,
+    ArtiklDialogComponent,
+    DobavljacDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +58,12 @@ import { HomeComponent } from './components/core/home/home.component';
     MatExpansionModule,
     MatTableModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
