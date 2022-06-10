@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'porudzbina', component: PorudzbinaComponent},
   {path: 'about', component: AboutComponent},
   {path: 'author', component: AuthorComponent},
-  {path: 'home', component: HomeComponent},
+  {path: 'home', component:HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'}
 ];
 

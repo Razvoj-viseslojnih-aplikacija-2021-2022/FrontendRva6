@@ -5,14 +5,14 @@
   <div class="container mat-elavation-z8">
     <mat-table #table [dataSource]="dataSource" class="mat-cell">
       <!--ID-->
+      <ng-container matColumnDef="naziv">
+        <mat-header-cell *matHeaderCellDef>NAZIV</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row.naziv }}</mat-cell>
+      </ng-container>
+      <!--Naziv-->
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
         <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
-      </ng-container>
-      <!--Naziv-->
-      <ng-container matColumnDef="naziv">
-        <mat-header-cell *matHeaderCellDef>Naziv</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row.naziv }}</mat-cell>
       </ng-container>
       <!-- Proizvodjac -->
       <ng-container matColumnDef="proizvodjac">
@@ -22,16 +22,16 @@
       <!-- Action Buttons -->
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button (click)="openDialog(1)" color="primary">
+          <button mat-icon-button (click)="openDialog(1)" color="accent">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let row; let i = index">
-          <button mat-icon-button (click)="openDialog(2,row.id, row.naziv, row.proizvodjac)" color="accent">
-            <mat-icon aria-label="Edit">edit</mat-icon>
+          <button mat-icon-button (click)="openDialog(2,row.id, row.naziv, row.proizvodjac)" color="primary">
+            <mat-icon color="primary" aria-label="Edit">edit</mat-icon>
           </button>
-          <button mat-icon-button (click)="openDialog(3,row.id, row.naziv, row.proizvodjac)" color="warn">
-            <mat-icon aria-label="Delete">delete</mat-icon>
+          <button mat-icon-button (click)="openDialog(3,row.id, row.naziv, row.proizvodjac)" color="primary">
+            <mat-icon color= "warn" aria-label="Delete">delete</mat-icon>
           </button>
         </mat-cell>
       </ng-container>

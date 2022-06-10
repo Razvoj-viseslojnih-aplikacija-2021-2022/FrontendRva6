@@ -1,4 +1,4 @@
-import { Artikl } from 'src/app/models/artikl';
+import { Artikl } from './../models/artikl';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -15,13 +15,13 @@ export class ArtiklService {
     return this.httpClient.get(`${ARTIKL_URI}`)
   }
 
-  public addArtikl(artikl: Artikl): Observable<any>{
-    artikl.id = 500000;
-    return this.httpClient.post(`${ARTIKL_URI}`,artikl);
+  public addArtikl(artikl : Artikl): Observable<any>{
+    artikl.id = 100000;
+    return this.httpClient.post(`${ARTIKL_URI}`, artikl);
   }
 
-  public updateArtikl(artikl: Artikl): Observable<any>{
-    return this.httpClient.put(`${ARTIKL_URI}`,artikl);
+  public updateArtikl(artikl : Artikl): Observable<any>{
+    return this.httpClient.put(`${ARTIKL_URI}`, artikl);
   }
 
   public deleteArtikl(id: number): Observable<any>{

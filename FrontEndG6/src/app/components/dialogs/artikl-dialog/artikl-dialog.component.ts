@@ -1,5 +1,5 @@
 import { ArtiklService } from './../../../services/artikl.service';
-import { Artikl } from 'src/app/models/artikl';
+import { Artikl } from './../../../models/artikl';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -11,55 +11,51 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class ArtiklDialogComponent implements OnInit {
 
-  public flag!: number;
+  flag!: number;
 
   constructor(public snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<ArtiklDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Artikl,
-    private artiklService: ArtiklService) { }
+    public artiklService: ArtiklService) { }
 
   ngOnInit(): void {
   }
 
   public add() {
-    this.artiklService.addArtikl(this.data).subscribe(
-      data => {
-        this.snackBar.open("Artikl: " + data.naziv + " je uspešno dodat", "U redu", { duration: 3500 })
-      }
-    ),
+    this.artiklService.addArtikl(this.data).subscribe
+      (data => {
+        this.snackBar.open("Uspešno ste dodali artikl: " + data.naziv, "U redu", { duration: 3500 })
+      }),
       (error: Error) => {
         console.log(error.name + " " + error.message),
-        this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
+          this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
       }
   }
 
   public update() {
-    this.artiklService.updateArtikl(this.data).subscribe(
-      data => {
-        this.snackBar.open("Artikl: " + data.naziv + " je uspešno modifikovan", "U redu", { duration: 3500 })
-      }
-    ),
+    this.artiklService.updateArtikl(this.data).subscribe
+      (data => {
+        this.snackBar.open("Uspešno ste ažurirali artikl: " + data.naziv, "U redu", { duration: 3500 })
+      }),
       (error: Error) => {
         console.log(error.name + " " + error.message),
-        this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
+          this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
       }
   }
 
   public delete() {
-    this.artiklService.deleteArtikl(this.data.id).subscribe(
-      () => {
-        this.snackBar.open("Artikl je uspešno obrisan", "U redu", { duration: 3500 })
-      }
-    ),
+    this.artiklService.deleteArtikl(this.data.id).subscribe
+      ( () => {
+        this.snackBar.open("Uspešno ste obrisali artikl:", "U redu", { duration: 3500 })
+      }),
       (error: Error) => {
         console.log(error.name + " " + error.message),
-        this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
+          this.snackBar.open("Dogodila se greška", "U redu", { duration: 3500 })
       }
   }
 
   public cancel() {
     this.dialogRef.close();
-    this.snackBar.open("odustali ste od izmena", "U redu" ,{duration: 3500});
+    this.snackBar.open("Odustali ste od izmena", "U redu", {duration:3500});
   }
-
 }
